@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'tasks-tutorial';
+  todo = ''
+  todos: any[] = []
+
+
+  addTodo() {
+    if(this.todo != ''){
+      this.todos = [...this.todos, this.todo]
+    }
+  }
+
+  completed(todoCompleted) {
+    this.todos = this.todos.filter(todo => todo != todoCompleted)
+  }
 }
